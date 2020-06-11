@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function populate(s1,s2){
+	var s1 = document.getElementById(s1);
+	var s2 = document.getElementById(s2);
+	s2.innerHTML = "";
+	if(s1.value == "EQUIPMENTS"){
+		var optionArray = ["|","ENVIOLET|ENVIOLET","Tempress|Tempress","IBS|IBS","Semicore|Semicore","CVD Equipment|CVD Equipment"];
+	} else if(s1.value == "FOUNDRIES"){
+		var optionArray = ["|","ABB|ABB","Aizu Fujitsu Semiconductor|Aizu Fujitsu Semiconductor","AKM-AKM SemiconductorI-nc|AKM-AKM SemiconductorI-nc","Analog Devices (formerly Linear Technology)|Analog Devices (formerly Linear Technology)","Apple (formerly Maxim formerly Samsung)|Apple (formerly Maxim formerly Samsung)","APT Electronics|APT Electronics"
+];
+	} else if(s1.value == "SOFTWARE"){
+		var optionArray = ["|","ARM|ARM","PLDA|PLDA","Lantronix|Lantronix"
+];
+	}
+	for(var option in optionArray){
+		var pair = optionArray[option].split("|");
+		var newOption = document.createElement("option");
+		newOption.value = pair[0];
+		newOption.innerHTML = pair[1];
+		s2.options.add(newOption);
+	}
+}
+</script>
+</head>
+<body>
+<h2>-: Enter Your Company Details :-</h2>
+<hr />
+Choose Category:
+<select id="slct1" name="slct1" onchange="populate(this.id,'slct2')">
+  <option value=""></option>
+  <option value="EQUIPMENTS">EQUIPMENTS</option>
+  <option value="FOUNDRIES">FOUNDRIES</option>
+  <option value="SOFTWARE">SOFTWARE</option>
+</select>
+<hr />
+Choose Organization Name:
+<select id="slct2" name="slct2"></select>
+<hr />
+</body>
+</html>
